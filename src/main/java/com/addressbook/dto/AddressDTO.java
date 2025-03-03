@@ -11,7 +11,7 @@ import lombok.Setter;
 @AllArgsConstructor // Lombok generates an all-args constructor
 public class AddressDTO {
 
-    // UC1- DTOandModel---------------------------------------
+    // UC2- Servicelayer ---------------------------------------
     private Long id;
     private String name;
     private String address;

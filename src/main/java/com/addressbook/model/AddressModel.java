@@ -15,7 +15,7 @@ import jakarta.persistence.Id;
 @AllArgsConstructor
 public class AddressModel {
 
-    // UC1-DTO and Model-----------------------------------
+    // UC2-Service Layer -----------------------------------------
     @Id
     private Long id;
     private String name;

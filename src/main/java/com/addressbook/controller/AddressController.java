@@ -16,6 +16,7 @@ import java.util.stream.Collectors;
 @RequestMapping("/api/address")
 public class AddressController {
 
+    // UC2-Service Layer-----------------------------------------------
     @Autowired
     private AddressService addressService;
 
