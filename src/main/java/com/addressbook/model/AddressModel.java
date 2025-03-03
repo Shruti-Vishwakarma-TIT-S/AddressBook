@@ -1,22 +1,24 @@
 package com.addressbook.model;
 
-import lombok.Data;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 
-@Data
 @Entity
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class AddressModel {
 
-    // UC1 - CreateAddressBook ---------------------------------------------
+    // UC1-DTO and Model-----------------------------------
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String name;
-    private String phoneNumber;
-    private String email;
-    private String addressLine;
+    private String address;
+    private String phone;
 }
