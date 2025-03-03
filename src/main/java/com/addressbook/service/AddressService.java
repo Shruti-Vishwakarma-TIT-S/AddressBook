@@ -29,13 +29,11 @@ public class AddressService {
         return addressRepository.save(address);
     }
 
+    //UC2- RestController-------------------------------------------
     // Update an existing address
     public AddressModel updateAddress(Long id, AddressModel address) {
-        if (addressRepository.existsById(id)) {
-            address.setId(id);
-            return addressRepository.save(address);
-        }
-        return null;
+        address.setId(id);
+        return addressRepository.save(address);
     }
 
     // Delete an address

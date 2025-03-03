@@ -3,6 +3,8 @@ package com.addressbook.controller;
 import com.addressbook.model.AddressModel;
 import com.addressbook.service.AddressService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -34,15 +36,27 @@ public class AddressController {
         return addressService.addAddress(address);
     }
 
+    //UC2-Rest controller ----------------------------------------------------
     // Update an existing address
     @PutMapping("/{id}")
-    public AddressModel updateAddress(@PathVariable Long id, @RequestBody AddressModel address) {
-        return addressService.updateAddress(id, address);
+    public ResponseEntity<AddressModel> updateAddress(@PathVariable Long id, @RequestBody AddressModel address) {
+        Optional<AddressModel> updatedAddress = addressService.getAddressById(id);
+        if (updatedAddress.isPresent()) {
+            AddressModel result = addressService.updateAddress(id, address);
+            return ResponseEntity.ok(result);
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }
     }
 
     // Delete an address
     @DeleteMapping("/{id}")
-    public boolean deleteAddress(@PathVariable Long id) {
-        return addressService.deleteAddress(id);
+    public ResponseEntity<Void> deleteAddress(@PathVariable Long id) {
+        boolean isDeleted = addressService.deleteAddress(id);
+        if (isDeleted) {
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }
     }
 }
