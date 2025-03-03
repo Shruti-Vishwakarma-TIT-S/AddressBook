@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
+import jakarta.validation.Valid;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -18,7 +18,7 @@ import java.util.stream.Collectors;
 @RequestMapping("/api/address")
 public class AddressController {
 
-    //UC2-Slf4j-----------------------------------------------------------
+    //UC1-Validation-----------------------------------------------------------
 
     @Autowired
     private AddressService addressService;

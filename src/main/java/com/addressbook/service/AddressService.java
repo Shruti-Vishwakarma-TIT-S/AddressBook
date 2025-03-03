@@ -2,7 +2,6 @@ package com.addressbook.service;
 
 import com.addressbook.model.AddressModel;
 import org.springframework.stereotype.Service;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -10,6 +9,7 @@ import java.util.Optional;
 @Service
 public class AddressService {
 
+    // UC1-Validation---------------------------------------
     // In-memory data store (List)
     private List<AddressModel> addressList = new ArrayList<>();
 
