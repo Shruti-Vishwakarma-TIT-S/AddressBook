@@ -7,11 +7,11 @@ import lombok.Setter;
 
 @Getter
 @Setter
-@NoArgsConstructor  // Lombok generates a no-args constructor
-@AllArgsConstructor // Lombok generates an all-args constructor
+@NoArgsConstructor
+@AllArgsConstructor
 public class AddressDTO {
 
-    // UC2- Servicelayer ---------------------------------------
+    // UC1- Lombok Library  -----------------------------------------------
     private Long id;
     private String name;
     private String address;
